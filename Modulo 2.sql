@@ -156,9 +156,16 @@ create table Empleado
 
 
 
-select * from Puesto
+select * from  Puesto
 
 
 select * from Empleado
+
+
+/* 1.- a nuestra tabla de productos agregarle el campo de Id de llave primaria
+   2.- crear una tabla llamda categoria con su id y llave primaria
+   3.- agregar un campo a productos haciendo referencia a categoria
+*/
+  
 
 
