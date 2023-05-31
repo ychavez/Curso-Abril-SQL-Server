@@ -46,3 +46,19 @@ select NumeroEmpleado, Nombre,APaterno, coalesce(AMaterno, 'No tiene'), PuestoId
 		when  @Genero = 'F' and @anios <= 12
 		then 'sra'
   end;
+
+
+  select *, 
+  case 
+  when nombre = 'juan' then 'es juan' 
+  end
+  from Empleado
+
+
+
+  select *, 
+  case Nombre
+  when 'juan' then 'es juan' 
+   when 'Pedro' then 'es pedro' 
+  end
+  from Empleado
