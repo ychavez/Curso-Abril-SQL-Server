@@ -2,14 +2,25 @@
 -- crear una tabla con solo los primeros 100 empleados
    -- sin el campo XMLOutput
 
-select top 100 
+select top 50 percent
 EmployeeNumber, 
 EmployeeFirstName, 
 EmployeeLastName, 
 EmployeeGovernmentID, 
 DateOfBirth, 
 Department
-into tblEmployee2
+
+from tblEmployee 
+
+
+select top 50 
+EmployeeNumber, 
+EmployeeFirstName, 
+EmployeeLastName, 
+EmployeeGovernmentID, 
+DateOfBirth, 
+Department
+
 from tblEmployee 
 
 
