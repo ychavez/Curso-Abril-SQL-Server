@@ -118,6 +118,7 @@ end
 select dbo.Promedio(QUOTA) from SalesQuota
 
 
+set @CategoriaId = (select top 1 id from categoria where nombre = '')
 
 /**
 1.- crear un stored procedure que nos sirva para insertar un nuevo producto en una categoria
@@ -138,3 +139,4 @@ select * from productoporcategoria('mueble')
 
 Silla| 500
 Escritorio| 1000
+*/
