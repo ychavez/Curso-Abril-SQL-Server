@@ -117,3 +117,24 @@ end
 
 select dbo.Promedio(QUOTA) from SalesQuota
 
+
+
+/**
+1.- crear un stored procedure que nos sirva para insertar un nuevo producto en una categoria
+como logica de negocios queremos que valide si el producto no estaba ya dado de alta,
+la categoria la vamos a pasar como texto y el sp buscara cual es el Id correspondiente
+si no hay una categoria con esa descripcion regresar un mensaje
+
+2.- crear una funcion que le mande el nombre del producto y nos regrese cuanto he vendido de ese producto
+ejemplo
+select obtenerVentas('Silla')
+
+|500|
+
+3.- una funcion tipo tabla que reciba el nombre de una categoria y me regrese los productos
+con su total de ventas ejemplo
+
+select * from productoporcategoria('mueble')
+
+Silla| 500
+Escritorio| 1000
