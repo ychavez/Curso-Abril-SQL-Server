@@ -24,3 +24,13 @@ nodo.col.value('.','varchar(30)') as item,
 nodo.col.value('@Cost','int') as precio
 from @x.nodes('/Shopping/ShoppingTrip/Item') as nodo(col)
 
+select * from tblTransaction for xml auto
+
+-- 1.- crear una tabla que se llame ventas 2 con la misma estructura de ventas e insertar algunas ventas
+-- 2.- crear un stored procedura que combine los datos de ventas 2 a ventas uno haciendo el uso del Merge
+-- 3.- crear una funcion tipo tabla que nos regrese por categoria el total de ventas siempre y cuando las ventas 
+--     sean mayores a 50 pesos ordenado por precio de mayor a menor
+-- 4.- crear un reporte de ventas por fecha haciendo uso de Common table expressions
+-- 5.- crear una variable tipo xml y la alimentaremos con el xml resultante de la consulta que hicimos en el paso 3
+-- 6.- consultar algunos datos de ese xml ahora como tabla    
+
