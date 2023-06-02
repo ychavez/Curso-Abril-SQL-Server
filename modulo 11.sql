@@ -1,24 +1,26 @@
-with sales (empNumber,TotalSales,SalesYear)
-as
-(
-select 
-EmployeeNumber empNumber, 
-SUM(Amount) TotalSales,
-YEAR(DateOfTransaction) SalesYear 
-from tblTransaction
-group by EmployeeNumber, YEAR(DateOfTransaction)
-),
-sales_Qouta(empId,SalesQuota,SalesQuotaYear)
-as
-(
-select 
-EmployeeNumber empId, 
-SUM(quota) SalesQuota, 
-Year SalesQuotaYear 
-from SalesQuota
-group by EmployeeNumber, Year
-)
+
+declare @x as xml =
+'<Shopping ShopperName="Phillip Burton" Weather="Nice">
+<ShoppingTrip ShoppingTripID="L1">
+    <Item Cost="5">Bananas</Item>
+    <Item Cost="56">Apples</Item>
+    <Item Cost="3">Cherries</Item>
+</ShoppingTrip>
+<ShoppingTrip ShoppingTripID="L2">
+    <Item Cost="200">Emeralds</Item>
+    <Item>Diamonds</Item>
+    <Item>Furniture</Item>
+	<Item Cost="30">Fresas</Item>
+</ShoppingTrip>
+</Shopping>'
 
 
-select * from sales s join sales_Qouta sq on s.empNumber = sq.empId and s.SalesYear = sq.SalesQuotaYear
+/* lecturas basicas de XML con XQUERY*/
+
+--select @x.value('(/Shopping/ShoppingTrip/Item/@Cost)[2]','int')
+
+select 
+nodo.col.value('.','varchar(30)') as item,
+nodo.col.value('@Cost','int') as precio
+from @x.nodes('/Shopping/ShoppingTrip/Item') as nodo(col)
 
