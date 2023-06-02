@@ -101,7 +101,15 @@ PadreId int constraint FK_TablaHija_TablaPadre_Hola
 alter table TablaHija add Activo bit not null
 constraint DF_ACTIVO default 1
 
+select * from TablaHija
+
+alter table tablahija add ValorUnico varchar(10)
+
+ALTER TABLE tablahija add constraint UQ_ValorUnico Unique(ValorUnico)
+
+
 insert into TablaHija (PadreId) values (3)
+
 insert into TablaHija  values (3,0)
 
 select * from TablaHija
